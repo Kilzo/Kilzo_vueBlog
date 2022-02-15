@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vuepress博客建造、优化和一些注意事项 | Kilzo</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.31861c7f.css" as="style"><link rel="preload" href="/assets/js/app.ed62cf83.js" as="script"><link rel="preload" href="/assets/js/5.e2f5d834.js" as="script"><link rel="preload" href="/assets/js/1.ebd3c882.js" as="script"><link rel="preload" href="/assets/js/13.8d211bb2.js" as="script"><link rel="prefetch" href="/assets/js/10.53df5d06.js"><link rel="prefetch" href="/assets/js/11.fff744e4.js"><link rel="prefetch" href="/assets/js/12.08016755.js"><link rel="prefetch" href="/assets/js/14.051c70f1.js"><link rel="prefetch" href="/assets/js/15.04d27fdf.js"><link rel="prefetch" href="/assets/js/16.391a3e56.js"><link rel="prefetch" href="/assets/js/17.acd928fd.js"><link rel="prefetch" href="/assets/js/18.73602f1e.js"><link rel="prefetch" href="/assets/js/19.4cdf2d32.js"><link rel="prefetch" href="/assets/js/2.63ae549a.js"><link rel="prefetch" href="/assets/js/20.3d25951a.js"><link rel="prefetch" href="/assets/js/21.27cd87c9.js"><link rel="prefetch" href="/assets/js/22.187943de.js"><link rel="prefetch" href="/assets/js/23.61e12727.js"><link rel="prefetch" href="/assets/js/24.4863d7c7.js"><link rel="prefetch" href="/assets/js/25.5ae5b9d7.js"><link rel="prefetch" href="/assets/js/26.9ca1a240.js"><link rel="prefetch" href="/assets/js/27.6758a312.js"><link rel="prefetch" href="/assets/js/28.bbff1ce0.js"><link rel="prefetch" href="/assets/js/6.fa9be800.js"><link rel="prefetch" href="/assets/js/7.9973e23c.js"><link rel="prefetch" href="/assets/js/8.5bba9f3a.js"><link rel="prefetch" href="/assets/js/9.c9f0ceb7.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.9bfd5313.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.31861c7f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-272a5bff><div data-v-272a5bff><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-272a5bff data-v-272a5bff><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-7c2f76d1 data-v-272a5bff data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>Kilzo</h3> <p class="description" data-v-7c2f76d1 data-v-7c2f76d1></p> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Kilzo</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-272a5bff><header class="navbar" data-v-272a5bff><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Kilzo" class="logo"> <span class="site-name">Kilzo</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/ACM算法竞赛/" class="nav-link"><i class="undefined"></i>
+  ACM算法竞赛
+</a></li><li class="dropdown-item"><!----> <a href="/categories/hexo/" class="nav-link"><i class="undefined"></i>
+  hexo
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Typora/" class="nav-link"><i class="undefined"></i>
+  Typora
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/MD/" class="nav-link router-link-active"><i class="undefined"></i>
+  Read it now
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Kilzo" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-272a5bff></div> <aside class="sidebar" data-v-272a5bff><div class="personal-info-wrapper" data-v-25b2bb28 data-v-272a5bff><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-25b2bb28> <h3 class="name" data-v-25b2bb28>
+    Kilzo
+  </h3> <div class="num" data-v-25b2bb28><div data-v-25b2bb28><h3 data-v-25b2bb28>12</h3> <h6 data-v-25b2bb28>Articles</h6></div> <div data-v-25b2bb28><h3 data-v-25b2bb28>12</h3> <h6 data-v-25b2bb28>Tags</h6></div></div> <ul class="social-links" data-v-25b2bb28></ul> <hr data-v-25b2bb28></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/ACM算法竞赛/" class="nav-link"><i class="undefined"></i>
+  ACM算法竞赛
+</a></li><li class="dropdown-item"><!----> <a href="/categories/hexo/" class="nav-link"><i class="undefined"></i>
+  hexo
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Typora/" class="nav-link"><i class="undefined"></i>
+  Typora
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/MD/" class="nav-link router-link-active"><i class="undefined"></i>
+  Read it now
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Kilzo" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>MD</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/MD/7Find.html" class="sidebar-link">第七章 查找</a></li><li><a href="/docs/MD/8.13-git.html" class="sidebar-link">关于8月13号Git不再支持密码验证导致hexo无法更新的问题</a></li><li><a href="/docs/MD/ACM-BJ.html" class="sidebar-link">ACM集训笔记和收录内容整理</a></li><li><a href="/docs/MD/BKBJ.html" aria-current="page" class="active sidebar-link">vuepress博客建造、优化和一些注意事项</a></li><li><a href="/docs/MD/BinaryTree.html" class="sidebar-link">完全二叉树的计算技巧</a></li><li><a href="/docs/MD/CodeSet.html" class="sidebar-link">很久之前都想搞定的代码高亮....</a></li><li><a href="/docs/MD/Codeforces-python.html" class="sidebar-link">Codeforces题目集爬取，包括是否AC</a></li><li><a href="/docs/MD/KSM.html" class="sidebar-link">笔记：快速幂</a></li><li><a href="/docs/MD/Math.html" class="sidebar-link">一些基本数学知识</a></li><li><a href="/docs/MD/NEW-blog.html" class="sidebar-link">有关我帮朋友搭建libra-blog而遇到的bug</a></li><li><a href="/docs/MD/Typora.html" class="sidebar-link">有关Typora激活</a></li><li><a href="/docs/MD/valine-waline.html" class="sidebar-link">Valine和Waline</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-7c2f76d1 data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>vuepress博客建造、优化和一些注意事项</h3> <!----> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Kilzo</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-272a5bff><main class="page"><section><div class="page-title"><h1 class="title">vuepress博客建造、优化和一些注意事项</h1> <div class="page-info" data-v-02542a78><i class="iconfont reco-account" data-v-02542a78><span data-v-02542a78>Kilzo</span></i> <i class="iconfont reco-date" data-v-02542a78><span data-v-02542a78>2021-10-25</span></i> <!----> <i class="iconfont reco-tag tags" data-v-02542a78><span class="tag-item" data-v-02542a78>博客</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="vuepress博客建造、优化和一些注意事项"><a href="#vuepress博客建造、优化和一些注意事项" class="header-anchor">#</a> vuepress博客建造、优化和一些注意事项</h1> <p>上一周学校社团讲了博客怎么建设,心血来潮想到之前用的HEXO是不是该改一改了，刷知乎无意间刷到有关vuepress安装静态博客的介绍，而且搜索到目前HEXO好像挺多人用了，作为一个爱折腾fw，决定重新建造一个基于vuepress的静态博客。于是乎，花了一整周来学习和修改主题。(呜呜呜，我果然是fw)</p> <blockquote><p>以上都是废话</p></blockquote> <div class="custom-block warning"><p class="title"></p><p>本文是基于vuepress-theme-reco主题下的修改，部分修改改了源码，但是也只是添加变量.修改透明度。并且修改后的网页不报错。</p></div><h2 id="正文开始"><a href="#正文开始" class="header-anchor">#</a> 正文开始</h2> <p>首先是先到[vuepress-theme-reco](<a href="https://vuepress-theme-reco.recoluan.com/" target="_blank" rel="noopener noreferrer">vuepress-theme-reco (recoluan.com)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)官方网站,这里也可以预览看看是不是你喜欢的主题。</p> <p>然后进入你想要建设博客的文件夹，win+r输入cmd打开控制台(如果你是win11可以直接右键打开window终端)。</p> <p>然后根据[vuepress-theme-reco](<a href="https://vuepress-theme-reco.recoluan.com/" target="_blank" rel="noopener noreferrer">vuepress-theme-reco (recoluan.com)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)官网上的教程初始化就可以了。</p> <h2 id="下面是优化"><a href="#下面是优化" class="header-anchor">#</a> 下面是优化</h2> <div class="custom-block warning"><p class="title"></p><p>以下默认你已经成功初始化并能通过本地预览到初始化后的博客。</p> <p>你博客目录下的package.json</p> <p>&quot;@vuepress-reco/vuepress-plugin-bgm-player&quot;: &quot;^1.1.4&quot;,</p> <p>&quot;@vuepress-reco/vuepress-plugin-kan-ban-niang&quot;: &quot;^1.0.5&quot;,</p> <p>&quot;vue-canvas-effect&quot;: &quot;0.0.12&quot;,</p> <p>&quot;vuepress-plugin-comment&quot;: &quot;^0.7.3&quot;,</p> <p>&quot;vuepress-plugin-cursor-effects&quot;: &quot;^1.0.2&quot;,</p> <p>&quot;vuepress-plugin-flowchart&quot;: &quot;^1.4.3&quot;,</p> <p>&quot;vuepress-plugin-reading-progress&quot;: &quot;^1.0.10&quot;,</p> <p>&quot;vuepress-plugin-sitemap&quot;: &quot;^2.3.1&quot;</p> <p>&quot;markdown-it-disable-url-encode&quot;: &quot;^1.0.1&quot;,</p> <p>&quot;markdown-it-katex&quot;: &quot;^2.0.3&quot;,</p> <p>&quot;vuepress&quot;: &quot;1.8.2&quot;,</p> <p>&quot;vuepress-plugin-auto-sidebar&quot;: &quot;^2.3.2&quot;,</p> <p>&quot;vuepress-plugin-dynamic-title&quot;: &quot;^1.0.0&quot;,</p> <p>&quot;vuepress-plugin-nuggets-style-copy&quot;: &quot;^1.0.3&quot;,</p> <p>&quot;vuepress-plugin-sakura&quot;: &quot;^1.1.0&quot;,</p> <p>&quot;vuepress-theme-reco&quot;: &quot;1.6.6&quot;</p> <p>theme下的package.json</p> <p>&quot;@vue/composition-api&quot;: &quot;^1.0.0-beta.20&quot;,</p> <p>&quot;@vuepress-reco/core&quot;: &quot;^1.6.2&quot;,</p> <p>&quot;@vuepress-reco/vuepress-plugin-back-to-top&quot;: &quot;^1.6.0&quot;,</p> <p>&quot;@vuepress-reco/vuepress-plugin-comments&quot;: &quot;^1.6.0&quot;,</p> <p>&quot;@vuepress-reco/vuepress-plugin-loading-page&quot;: &quot;^1.6.0&quot;,</p> <p>&quot;@vuepress-reco/vuepress-plugin-pagation&quot;: &quot;^1.6.0&quot;,</p> <p>&quot;@vuepress/plugin-blog&quot;: &quot;1.9.2&quot;,</p> <p>&quot;@vuepress/plugin-medium-zoom&quot;: &quot;1.5.0&quot;,</p> <p>&quot;docsearch.js&quot;: &quot;2.6.3&quot;,</p> <p>&quot;md5&quot;: &quot;2.2.1&quot;,</p> <p>&quot;vue-click-outside&quot;: &quot;1.1.0&quot;,</p> <p>&quot;vue-demi&quot;: &quot;^0.5.3&quot;,</p> <p>&quot;vuepress-plugin-smooth-scroll&quot;: &quot;^0.0.9&quot;</p></div><h1 id="基础部分-friend-link什么的基本设置"><a href="#基础部分-friend-link什么的基本设置" class="header-anchor">#</a> 基础部分（Friend Link什么的基本设置）</h1> <h2 id="首先是修改下载的博客路径"><a href="#首先是修改下载的博客路径" class="header-anchor">#</a> 首先是修改下载的博客路径</h2> <p>一般npm下载的文件都存放在<code>node_modules</code>中，找到文件<code>vuepress-theme-reco</code>并且把它放在你的<code>.vuepress</code>文件下面，并改名为<code>theme</code>。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>D:.
+├─.vuepress
+│  ├─public
+│  ├─styles
+│  └─theme
+│      ├─components
+│      │  ├─HomeBlog
+│      │  └─Mode
+│      ├─global-components
+│      ├─helpers
+│      ├─images
+│      ├─layouts
+│      ├─lib
+│      ├─locales
+│      ├─mixins
+│      ├─node_modules
+│      │  └─vuepress-plugin-smooth-scroll
+│      │      ├─lib
+│      │      └─styles
+│      └─styles
+├─docs
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>结构如图</p> <h2 id="修改头像、背景和左上角的logo"><a href="#修改头像、背景和左上角的logo" class="header-anchor">#</a> 修改头像、背景和左上角的logo</h2> <p>找到<code>(你的)博客目录下\.vuepress\public</code>将里面的<code>avatar.png</code>替换为你想要的头像并且更名为<code>avatar.png</code></p> <p>同样的<code>logo</code>也是如此。</p> <p>在里面加入你想要作为背景的图片。并改名为<code>background.png</code>（这里图片的名字随你，格式也随意，但最好是png）然后我们回到博客根目录，打开 <code>README.md</code></p> <div class="language-markdown line-numbers-mode"><pre class="language-markdown"><code><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token font-matter yaml language-yaml">#这里改为
+home: true
+heroText: Hello   				#首页背景标题显示
+tagline: Welcome to my world     #跟着标题的下面哪一行小字
+heroImageStyle: {                #还没研究出有什么用，233333.
+  maxWidth: '600px',
+  width: '100%',
+  display: block,
+  margin: '9rem auto 2rem',
+  background: '#fff',
+  borderRadius: '1rem',
+}
+bgImage: back_1.png
+bgImageStyle: {					#设置背景图片的大小和范围
+  height: '1250px',
+  margin: '0',					#是否占据导航栏上方，这里是调导航栏透明时候要设置的
+}</span>
+<span class="token punctuation">---</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>然后刷新一下<code>npm run dev</code>，看看效果</p> <h2 id="接着是friend-link-等基本设置"><a href="#接着是friend-link-等基本设置" class="header-anchor">#</a> 接着是Friend Link 等基本设置</h2> <p>打开在<code>.vuepress</code>下的<code>config.js</code>使用<code>Ctrl + F</code>搜索<code>friendLink</code>找到friendLink。(我搁着搁着呢)</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>    <span class="token string">&quot;friendLink&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;午后南杂&quot;</span><span class="token punctuation">,</span>   <span class="token comment">//目标的名字</span>
+        <span class="token string">&quot;desc&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Enjoy when you can, and endure when you must.&quot;</span><span class="token punctuation">,</span>   <span class="token comment">//目标介绍</span>
+        <span class="token string">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1156743527@qq.com&quot;</span><span class="token punctuation">,</span>	<span class="token comment">//目标的邮箱</span>
+        <span class="token string">&quot;link&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://www.recoluan.com&quot;</span>		<span class="token comment">//目标的网站链接</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token comment">//如果有多个友链不要忘记加 ，</span>
+      <span class="token punctuation">{</span>										<span class="token comment">//此部分同上</span>
+        <span class="token string">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress-theme-reco&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;desc&quot;</span><span class="token operator">:</span> <span class="token string">&quot;A simple and beautiful vuepress Blog &amp; Doc theme.&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;avatar&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;link&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://vuepress-theme-reco.recoluan.com&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="修改首页底部信息"><a href="#修改首页底部信息" class="header-anchor">#</a> 修改首页底部信息</h2> <div class="language-json line-numbers-mode"><pre class="language-json"><code>    <span class="token property">&quot;record&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxxx&quot;</span><span class="token punctuation">,</span>	 <span class="token comment">//忘了干嘛的 ，你百度一下 </span>
+    <span class="token property">&quot;startYear&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021&quot;</span>  <span class="token comment">//博客开始时</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="导航栏设置-路由"><a href="#导航栏设置-路由" class="header-anchor">#</a> 导航栏设置（路由）</h2> <p>目前是有插件可以整个自动的。哪天我改好了会写一下。</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token property">&quot;vuepress-plugin-autobar&quot;</span><span class="token operator">:</span> npm install -D boboidream/vuepress-bar
+<span class="token comment">// 配置中添加插件</span>
+<span class="token comment">// .vuepress/config.js</span>
+<span class="token comment">// or</span>
+<span class="token comment">// .vuepress/theme/index.js</span>
+module.exports = <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>'autobar'<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="然后基本就配置好了-接着是导入你之前写过的文章-介绍你将在哪里写博文"><a href="#然后基本就配置好了-接着是导入你之前写过的文章-介绍你将在哪里写博文" class="header-anchor">#</a> 然后基本就配置好了，接着是导入你之前写过的文章，介绍你将在哪里写博文</h2> <p>这里真的是弄的我痛不欲生，可能这就是vue小白的痛点。最后看B站大佬和其他人的文章给了我一丝启发，给我整出来了，但是我不满意，有空再改改。</p> <p>首先是官方给的目录，我们需要参考一下. 然后官方貌似没有给出具体的实现方法。可能是我没找到....</p> <p>根据目录结构，我推测出文档应该放在<code>docs</code>文件夹里，于是，我们进入<code>docs</code>文件夹，创建一个新的文件夹来保存你的文章。然后在<code>.vuepress</code>下的<code>config.js</code>找到nav，修改如下：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Docs&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;icon&quot;</span><span class="token operator">:</span> <span class="token string">&quot;reco-message&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token comment">// {</span>
+        <span class="token comment">//   &quot;text&quot;: &quot;vuepress-reco&quot;,</span>
+        <span class="token comment">//   &quot;link&quot;: &quot;/docs/theme-reco/&quot;</span>
+        <span class="token comment">// },</span>
+        <span class="token punctuation">{</span>
+          <span class="token string">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Read it now&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;link&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/docs/MD/&quot;</span>     <span class="token comment">//这里是导航栏的存储路径，MD改为你存储文章的文件夹</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>这里不介绍怎么改导航栏了。</p> <p>你写的文章有时候要用到图片，这个地方我卡了很久，最后根据大佬的文章和B站的视频给了我启发。我尝试build打包我的博客，最后发现public文件夹里面的文件是最后能够留存下来的文件之一。我尝试了一下，成功了。下面来讲讲怎么做。</p> <p>在<code>.vuepress</code>下的<code>public</code>加入你所需导入的图片，以后都是这样。然后在你的文章里导入图片要这样导入（官方文档有介绍<a href="https://vuepress.vuejs.org/zh/guide/assets.html#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84" target="_blank" rel="noopener noreferrer">静态资源 | VuePress (vuejs.org)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）</p> <p><code>&lt;img :src=&quot;$withBase('/文件路径.图片类型')&quot; alt=&quot;你的文件名&quot;&gt;</code></p> <div class="custom-block danger"><p class="title"></p><p>注意，这里文件路径前面的 / 不能少，还有‘ ’。</p></div><p>以上是对于不变的图组所使用的。在markdown中插入图片更推荐相对路径</p> <p>在你觉得合适的路径放置存放图片的文件夹。</p> <p><code>![名字](路径)</code>就能引用了</p> <h1 id="以下是添加插件部分"><a href="#以下是添加插件部分" class="header-anchor">#</a> 以下是添加插件部分</h1> <h2 id="接着添加气泡效果-这个应该很多教程都有写"><a href="#接着添加气泡效果-这个应该很多教程都有写" class="header-anchor">#</a> 接着添加气泡效果，这个应该很多教程都有写</h2> <p>打开<code>(你的)博客目录\.vuepress\theme\components\HomeBlog</code>中的<code>index.vue</code>，</p> <p>在第<strong>27</strong>行写入<code>&lt;component v-if=&quot;bubbles&quot; :is=&quot;bubbles&quot;&gt;&lt;/component&gt;</code>,</p> <p>然后在下方<code>components</code>模块下面添加如下代码：</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code>  <span class="token selector">data ()</span> <span class="token punctuation">{</span>
+    <span class="token selector">return</span> <span class="token punctuation">{</span>
+      <span class="token property">recoShow</span><span class="token punctuation">:</span> false<span class="token punctuation">,</span>
+      <span class="token property">currentPage</span><span class="token punctuation">:</span> 1<span class="token punctuation">,</span>
+      <span class="token property">tags</span><span class="token punctuation">:</span> []<span class="token punctuation">,</span>
+      <span class="token property">bubbles</span><span class="token punctuation">:</span> null
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>最后在下方的methods方法上面加入如下代码：</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code>  <span class="token selector">mounted ()</span><span class="token punctuation">{</span>
+    <span class="token selector">import('vue-canvas-effect/src/components/bubbles').then(module =&gt;</span> <span class="token punctuation">{</span>
+      this.bubbles=module.default
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    this.recoShow = true
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>最终<code>index.vue</code>代码总体如下：</p> <div class="language-vue line-numbers-mode"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>home-blog<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>hero<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ ...bgImageStyle }<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+            <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>hero-img<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>recoShowModule &amp;&amp; $frontmatter.heroImage<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>heroImageStyle || {}<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>$withBase($frontmatter.heroImage)<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>hero<span class="token punctuation">&quot;</span></span>
+          <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ModuleTransition</span> <span class="token attr-name">delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0.04<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>recoShowModule &amp;&amp; $frontmatter.heroText !== null<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            {{ $frontmatter.heroText || $title || 'vuePress-theme-reco' }}
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ModuleTransition</span> <span class="token attr-name">delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0.08<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>recoShowModule &amp;&amp; $frontmatter.tagline !== null<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>description<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            {{ $frontmatter.tagline || $description || 'Welcome to your vuePress-theme-reco site' }}
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bubbles<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bubbles<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">&gt;</span></span>   		// 在这里添加
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ModuleTransition</span> <span class="token attr-name">delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0.16<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>recoShowModule<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>home-blog-wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>blog-list<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token comment">&lt;!-- 博客列表 --&gt;</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>note-abstract</span> <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>$recoPosts<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@paginationChange</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>paginationChange<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>info-wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PersonalInfo</span><span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>reco-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>reco-category<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span> {{$recoLocales.category}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>category-wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>category-item<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>(item, index) in this.$categories.list<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>index<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item.path<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>category-name<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ item.name }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>post-num<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ <span class="token punctuation">'</span>backgroundColor<span class="token punctuation">'</span>: getOneColor() }<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ item.pages.length }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>$tags.list.length !== 0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>reco-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>reco-tag<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span> {{$recoLocales.tag}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TagList</span> <span class="token attr-name">@getCurrentTag</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>getPagesByTags<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>$themeConfig.friendLink &amp;&amp; $themeConfig.friendLink.length !== 0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>reco-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>reco-friend<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span> {{$recoLocales.friendLink}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FriendLink</span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ModuleTransition</span> <span class="token attr-name">delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0.24<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>recoShowModule<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>home-center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">custom</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ModuleTransition</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> toRefs<span class="token punctuation">,</span> reactive<span class="token punctuation">,</span> computed<span class="token punctuation">,</span> getCurrentInstance<span class="token punctuation">,</span> onMounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue-demi'</span>
+<span class="token keyword">import</span> TagList <span class="token keyword">from</span> <span class="token string">'@theme/components/TagList'</span>
+<span class="token keyword">import</span> FriendLink <span class="token keyword">from</span> <span class="token string">'@theme/components/FriendLink'</span>
+<span class="token keyword">import</span> NoteAbstract <span class="token keyword">from</span> <span class="token string">'@theme/components/NoteAbstract'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ModuleTransition<span class="token punctuation">,</span> RecoIcon <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@vuepress-reco/core/lib/components'</span>
+<span class="token keyword">import</span> PersonalInfo <span class="token keyword">from</span> <span class="token string">'@theme/components/PersonalInfo'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> getOneColor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@theme/helpers/other'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span> NoteAbstract<span class="token punctuation">,</span> TagList<span class="token punctuation">,</span> FriendLink<span class="token punctuation">,</span> ModuleTransition<span class="token punctuation">,</span> PersonalInfo<span class="token punctuation">,</span> RecoIcon <span class="token punctuation">}</span><span class="token punctuation">,</span>   	<span class="token comment">// 在这下面添加data方法</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      recoShow<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      currentPage<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      tags<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      bubbles<span class="token operator">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span> <span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> instance <span class="token operator">=</span> <span class="token function">getCurrentInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>proxy
+
+    <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      recoShow<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      heroHeight<span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> recoShowModule <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> instance <span class="token operator">&amp;&amp;</span> instance<span class="token punctuation">.</span>$parent<span class="token punctuation">.</span>recoShowModule<span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> heroImageStyle <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> instance<span class="token punctuation">.</span>$frontmatter<span class="token punctuation">.</span>heroImageStyle <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> bgImageStyle <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> url <span class="token operator">=</span> instance<span class="token punctuation">.</span>$frontmatter<span class="token punctuation">.</span>bgImage
+        <span class="token operator">?</span> instance<span class="token punctuation">.</span><span class="token function">$withBase</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>$frontmatter<span class="token punctuation">.</span>bgImage<span class="token punctuation">)</span>
+        <span class="token operator">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../../images/bg.svg'</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">const</span> initBgImageStyle <span class="token operator">=</span> <span class="token punctuation">{</span>
+        textAlign<span class="token operator">:</span> <span class="token string">'center'</span><span class="token punctuation">,</span>
+        overflow<span class="token operator">:</span> <span class="token string">'hidden'</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">url(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">) center/cover no-repeat</span><span class="token template-punctuation string">`</span></span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> bgImageStyle <span class="token punctuation">}</span> <span class="token operator">=</span> instance<span class="token punctuation">.</span>$frontmatter
+
+      <span class="token keyword">return</span> bgImageStyle <span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token operator">...</span>initBgImageStyle<span class="token punctuation">,</span> <span class="token operator">...</span>bgImageStyle <span class="token punctuation">}</span> <span class="token operator">:</span> initBgImageStyle
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>heroHeight <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.hero'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clientHeight
+      state<span class="token punctuation">.</span>recoShow <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> recoShowModule<span class="token punctuation">,</span> heroImageStyle<span class="token punctuation">,</span> bgImageStyle<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token function">toRefs</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">,</span> getOneColor <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'vue-canvas-effect/src/components/bubbles'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">module</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>bubbles<span class="token operator">=</span>module<span class="token punctuation">.</span>default
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>recoShow <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>  <span class="token comment">//在这上面添加mounted方法</span>
+    <span class="token function">paginationChange</span> <span class="token punctuation">(</span><span class="token parameter">page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>heroHeight<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">getPagesByTags</span> <span class="token punctuation">(</span><span class="token parameter">tagInfo</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token operator">:</span> tagInfo<span class="token punctuation">.</span>path <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylus<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.home-blog</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0px auto<span class="token punctuation">;</span>
+  <span class="token selector">.hero</span> <span class="token punctuation">{</span>
+    <span class="token selector">margin $navbarHeight auto 0
+    position relative
+    box-sizing border-box
+    padding 0 20px
+    height 100vh
+    display flex
+    align-items center
+    justify-content center
+    .hero-img</span> <span class="token punctuation">{</span>
+      <span class="token property">max-width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+      <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto 1.5rem
+    <span class="token punctuation">}</span>
+
+    <span class="token selector">h1</span> <span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+      <span class="token property">margin</span><span class="token punctuation">:</span>0 auto 1.8rem<span class="token punctuation">;</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 2.5rem<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token selector">.description</span> <span class="token punctuation">{</span>
+      <span class="token property">margin</span><span class="token punctuation">:</span> 1.8rem auto<span class="token punctuation">;</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.6rem<span class="token punctuation">;</span>
+      <span class="token property">line-height</span><span class="token punctuation">:</span> 1.3<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.home-blog-wrapper</span> <span class="token punctuation">{</span>
+    display flex
+    <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token selector">margin 20px auto 0
+    padding 0 20px
+    max-width $homePageWidth
+    .blog-list</span> <span class="token punctuation">{</span>
+      <span class="token selector">flex auto
+      width 0
+      .abstract-wrapper</span> <span class="token punctuation">{</span>
+        <span class="token selector">.abstract-item:last-child</span> <span class="token punctuation">{</span>
+          <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">.info-wrapper</span> <span class="token punctuation">{</span>
+      position -webkit-sticky<span class="token punctuation">;</span>
+      position sticky<span class="token punctuation">;</span>
+      <span class="token selector">top 70px
+      overflow hidden
+      transition all .3s
+      margin-left 15px
+      flex 0 0 300px
+      height auto
+      box-shadow var(--box-shadow)
+      border-radius $borderRadius
+      box-sizing border-box
+      padding 0 15px
+      background var(--background-color)
+      &amp;:hover</span> <span class="token punctuation">{</span>
+        box-shadow <span class="token function">var</span><span class="token punctuation">(</span>--box-shadow-hover<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">h4</span> <span class="token punctuation">{</span>
+        color <span class="token function">var</span><span class="token punctuation">(</span>--text-color<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">.category-wrapper</span> <span class="token punctuation">{</span>
+        <span class="token selector">list-style none
+        padding-left 0
+        .category-item</span> <span class="token punctuation">{</span>
+          margin-bottom .4rem
+          <span class="token property">padding</span><span class="token punctuation">:</span> .4rem .8rem<span class="token punctuation">;</span>
+          <span class="token selector">transition: all .5s
+          border-radius $borderRadius
+          box-shadow var(--box-shadow)
+          background-color var(--background-color)
+          &amp;:hover</span> <span class="token punctuation">{</span>
+            <span class="token selector">transform scale(1.04)
+            a</span> <span class="token punctuation">{</span>
+              color $accentColor
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+          <span class="token selector">a</span> <span class="token punctuation">{</span>
+            <span class="token selector">display flex
+            justify-content: space-between
+            align-items: center
+            color var(--text-color)
+            .post-num</span> <span class="token punctuation">{</span>
+              width 1.6rem<span class="token punctuation">;</span>
+              height 1.6rem
+              text-align center
+              line-height 1.6rem
+              border-radius $borderRadius
+              background #eee
+              font-size 13px
+              color #fff
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> $MQMobile<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">.home-blog</span> <span class="token punctuation">{</span>
+    <span class="token selector">.hero</span> <span class="token punctuation">{</span>
+      <span class="token selector">height 450px
+      img</span> <span class="token punctuation">{</span>
+        <span class="token property">max-height</span><span class="token punctuation">:</span> 210px<span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 2rem auto 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">h1</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto 1.8rem <span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.description</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.action-button</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 0.6rem 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">.home-blog-wrapper</span> <span class="token punctuation">{</span>
+      <span class="token selector">display block!important
+      .blog-list</span> <span class="token punctuation">{</span>
+        width auto
+      <span class="token punctuation">}</span>
+      <span class="token selector">.info-wrapper</span> <span class="token punctuation">{</span>
+        <span class="token selector">// display none!important
+        margin-left 0
+        .personal-info-wrapper</span> <span class="token punctuation">{</span>
+          display none
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> $MQMobileNarrow<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">.home-blog</span> <span class="token punctuation">{</span>
+    <span class="token selector">.hero</span> <span class="token punctuation">{</span>
+      <span class="token selector">height 450px
+      img</span> <span class="token punctuation">{</span>
+        <span class="token property">max-height</span><span class="token punctuation">:</span> 210px<span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 2rem auto 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">h1</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto 1.8rem <span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">h1, .description, .action</span> <span class="token punctuation">{</span>
+        // <span class="token property">margin</span><span class="token punctuation">:</span> 1.2rem auto<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.description</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.action-button</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 0.6rem 1.2rem<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token selector">.home-blog-wrapper</span> <span class="token punctuation">{</span>
+      <span class="token selector">display block!important
+      .blog-list</span> <span class="token punctuation">{</span>
+        width auto
+      <span class="token punctuation">}</span>
+      <span class="token selector">.info-wrapper</span> <span class="token punctuation">{</span>
+        <span class="token selector">// display none!important
+        margin-left 0
+        .personal-info-wrapper</span> <span class="token punctuation">{</span>
+          display none
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br></div></div><h2 id="背景樱花特效"><a href="#背景樱花特效" class="header-anchor">#</a> 背景樱花特效</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">npm</span> <span class="token function">install</span> vuepress-plugin-sakura -D   
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>或者是下面这个</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>cnpm <span class="token function">install</span> vuepress-plugin-sakura -D   
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>打开<code>.vuepress</code>下的<code>theme</code>的<code>index.js</code>,在<code>plugins</code>加入如下代码。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code> <span class="token punctuation">[</span><span class="token string">&quot;sakura&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        num<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>  <span class="token comment">// 默认数量</span>
+        show<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//  是否显示</span>
+        zIndex<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>   <span class="token comment">// 层级</span>
+        img<span class="token operator">:</span> <span class="token punctuation">{</span>
+          replace<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>  <span class="token comment">// false 默认图 true 换图 需要填写httpUrl地址</span>
+          httpUrl<span class="token operator">:</span> <span class="token string">'...'</span>     <span class="token comment">// 绝对路径</span>
+        <span class="token punctuation">}</span>     
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="live-2d"><a href="#live-2d" class="header-anchor">#</a> live 2D</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">npm</span> i @vuepress-reco/vuepress-plugin-kan-ban-niang
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>打开<code>.vuepress</code>下的<code>theme</code>的<code>index.js</code>,在<code>plugins</code>加入如下代码。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@vuepress-reco/vuepress-plugin-kan-ban-niang'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        theme<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'miku'</span><span class="token punctuation">,</span> <span class="token string">'whiteCat'</span><span class="token punctuation">,</span> <span class="token string">'haru1'</span><span class="token punctuation">,</span> <span class="token string">'haru2'</span><span class="token punctuation">,</span> <span class="token string">'haruto'</span><span class="token punctuation">,</span> <span class="token string">'koharu'</span><span class="token punctuation">,</span> <span class="token string">'izumi'</span><span class="token punctuation">,</span> <span class="token string">'shizuku'</span><span class="token punctuation">,</span> <span class="token string">'wanko'</span><span class="token punctuation">,</span> <span class="token string">'blackCat'</span><span class="token punctuation">,</span> <span class="token string">'z16'</span>    <span class="token comment">//这里设置显示的live-2d,删除剩下你想要的那个就可以了</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        clean<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        messages<span class="token operator">:</span> <span class="token punctuation">{</span> 
+          welcome<span class="token operator">:</span> <span class="token string">'欢迎来到我的博客'</span><span class="token punctuation">,</span> home<span class="token operator">:</span> <span class="token string">'心里的花，我想要带你回家。'</span><span class="token punctuation">,</span> theme<span class="token operator">:</span> <span class="token string">'好吧，希望你能喜欢我的其他小伙伴。'</span><span class="token punctuation">,</span> close<span class="token operator">:</span> <span class="token string">'你不喜欢我了吗？痴痴地望着你。'</span> 
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        messageStyle<span class="token operator">:</span> <span class="token punctuation">{</span> right<span class="token operator">:</span> <span class="token string">'68px'</span><span class="token punctuation">,</span> bottom<span class="token operator">:</span> <span class="token string">'290px'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        width<span class="token operator">:</span> <span class="token number">250</span><span class="token punctuation">,</span>
+        height<span class="token operator">:</span> <span class="token number">320</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="音乐播放器"><a href="#音乐播放器" class="header-anchor">#</a> 音乐播放器</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">npm</span> i @vuepress-reco/vuepress-plugin-bgm-player
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>打开<code>.vuepress</code>下的<code>theme</code>的<code>index.js</code>,在<code>plugins</code>加入如下代码。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token punctuation">[</span>
+      <span class="token string">&quot;@vuepress-reco/vuepress-plugin-bgm-player&quot;</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        audios<span class="token operator">:</span> <span class="token punctuation">[</span>     
+          <span class="token comment">// 本地文件示例</span>
+          <span class="token comment">// {</span>
+          <span class="token comment">//   name: '장가갈 수 있을까',   //文件名字</span>
+          <span class="token comment">//   artist: '咖啡少年',        </span>
+          <span class="token comment">//   url: '/bgm/1.mp3',         //本地路径</span>
+          <span class="token comment">//   cover: '/bgm/1.jpg'        //显示图片</span>
+          <span class="token comment">// },</span>
+          <span class="token comment">// 网络文件示例</span>
+          <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'강남역 4번 출구'</span><span class="token punctuation">,</span>
+            artist<span class="token operator">:</span> <span class="token string">'Plastic / Fallin` Dild'</span><span class="token punctuation">,</span>
+            url<span class="token operator">:</span> <span class="token string">'https://assets.smallsunnyfox.com/music/2.mp3'</span><span class="token punctuation">,</span>
+            cover<span class="token operator">:</span> <span class="token string">'https://assets.smallsunnyfox.com/music/2.jpg'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'用胳膊当枕头'</span><span class="token punctuation">,</span>
+            artist<span class="token operator">:</span> <span class="token string">'최낙타'</span><span class="token punctuation">,</span>
+            url<span class="token operator">:</span> <span class="token string">'https://assets.smallsunnyfox.com/music/3.mp3'</span><span class="token punctuation">,</span>
+            cover<span class="token operator">:</span> <span class="token string">'https://assets.smallsunnyfox.com/music/3.jpg'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>  
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="最顶上边文章进度条"><a href="#最顶上边文章进度条" class="header-anchor">#</a> 最顶上边文章进度条</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> vuepress-plugin-reading-progress
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>或者</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">npm</span> i vuepress-plugin-reading-progress
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>同样的， 打开<code>.vuepress</code>下的<code>theme</code>的<code>index.js</code>,在<code>plugins</code>加入如下代码。</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">[</span>'reading-progress'<span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="valine评论系统"><a href="#valine评论系统" class="header-anchor">#</a> Valine评论系统</h2> <p>此处参看Valine官方<a href="https://valine.js.org/" target="_blank" rel="noopener noreferrer">介绍 | Valine 一款快速、简洁且高效的无后端评论系统。<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>如果使用 <code>npm</code>：</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save vuepress-plugin-comment
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果使用 <code>yarn</code>:</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> vuepress-plugin-comment -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>    <span class="token punctuation">[</span>
+      <span class="token string">'vuepress-plugin-comment'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        choosen<span class="token operator">:</span> <span class="token string">'valine'</span><span class="token punctuation">,</span> 
+        <span class="token comment">// options选项中的所有参数，会传给Valine的配置</span>
+        options<span class="token operator">:</span> <span class="token punctuation">{</span>
+          el<span class="token operator">:</span> <span class="token string">'#valine-vuepress-comment'</span><span class="token punctuation">,</span>
+          appId<span class="token operator">:</span> <span class="token string">'Your own appId'</span><span class="token punctuation">,</span>
+          appKey<span class="token operator">:</span> <span class="token string">'Your own appKey'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h1 id="最复杂的透明度设置和主题颜色设置"><a href="#最复杂的透明度设置和主题颜色设置" class="header-anchor">#</a> 最复杂的透明度设置和主题颜色设置</h1> <p>这玩意我整了好久，一开始是打算<code>F12</code>大法直接修改源码，但是后面我的博客调崩了，23333,虽然有官方调整文档。但是为了调透明度，然后就崩了。。。。最后采用了大佬的方法。<a href="https://juejin.cn/post/6844904165257248775" target="_blank" rel="noopener noreferrer">给 Vuepress 添加暗色夜间模式 - 掘金 (juejin.cn)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>详情在这，如果有人想要自己建造一个模式可以参考一下。</p> <div class="custom-block tip"><p class="title"></p><p>这里我就写一下我的修改方法</p></div><p>我们找到<code>.vuepress</code>下的<code>theme</code>下的<code>components</code>下的<code>Mode</code>,打开<code>modeOptions.js</code>，这里就是颜色变量存储的地方。</p> <div class="custom-block warning"><p class="title"></p><p>为了尽量不改变源码，我们这里只添加变量和修改要改的地方。（已经尝试过，不会报错）</p></div><p>我们分别在<code>light</code>和<code>dark</code>加上相同的变量名称如<code>--background-opacity</code>并按照上面给的格式赋值</p> <p>总体修改如下：</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token selector">const modeOptions =</span> <span class="token punctuation">{</span>
+  <span class="token selector">light:</span> <span class="token punctuation">{</span>
+    <span class="token string">'--default-color-10'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, 1)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-9'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .9)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-8'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .8)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-7'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .7)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-6'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .6)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-5'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .5)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-4'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .4)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-3'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .3)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-2'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .2)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-1'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .1)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--background-color'</span><span class="token punctuation">:</span> <span class="token string">'#fff'</span><span class="token punctuation">,</span>   
+    <span class="token string">'--background-opacity'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, 0)'</span><span class="token punctuation">,</span>    //这里修改亮色主题颜色背景透明度
+    <span class="token string">'--background-opacity-dropdown'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255,255,255,0.4)'</span><span class="token punctuation">,</span>  //这里修改亮色主题下拉颜色背景透明度
+    <span class="token string">'--box-shadow'</span><span class="token punctuation">:</span> <span class="token string">'0 1px 8px 0 rgba(0, 0, 0, 0.1)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--box-shadow-hover'</span><span class="token punctuation">:</span> <span class="token string">'0 2px 16px 0 rgba(0, 0, 0, 0.2)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--text-color'</span><span class="token punctuation">:</span> <span class="token string">'#242424'</span><span class="token punctuation">,</span>
+    <span class="token string">'--text-color-sub'</span><span class="token punctuation">:</span> <span class="token string">'#7F7F7F'</span><span class="token punctuation">,</span>
+    <span class="token string">'--border-color'</span><span class="token punctuation">:</span> <span class="token string">'#eaecef'</span><span class="token punctuation">,</span>
+    <span class="token string">'--code-color'</span><span class="token punctuation">:</span> <span class="token string">'rgba(27, 31, 35, 0.05)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--mask-color'</span><span class="token punctuation">:</span> <span class="token string">'#888'</span>
+  <span class="token punctuation">}</span><span class="token selector">,
+  dark:</span> <span class="token punctuation">{</span>
+    <span class="token string">'--default-color-10'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, 1)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-9'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .9)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-8'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .8)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-7'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .7)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-6'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .6)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-5'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .5)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-4'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .4)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-3'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .3)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-2'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .2)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--default-color-1'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .1)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--background-color'</span><span class="token punctuation">:</span> <span class="token string">'#181818'</span><span class="token punctuation">,</span>  
+    <span class="token string">'--background-opacity:'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, 0)'</span><span class="token punctuation">,</span>//这里修改暗色主题颜色背景
+    <span class="token string">'--background-opacity-dropdown'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0,0,0,0.4)'</span><span class="token punctuation">,</span> //这里修改暗色主题下拉颜色背景
+    <span class="token string">'--box-shadow'</span><span class="token punctuation">:</span> <span class="token string">'0 1px 8px 0 rgba(0, 0, 0, .6)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--box-shadow-hover'</span><span class="token punctuation">:</span> <span class="token string">'0 2px 16px 0 rgba(0, 0, 0, .7)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--text-color'</span><span class="token punctuation">:</span> <span class="token string">'rgba(255, 255, 255, .8)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--text-color-sub'</span><span class="token punctuation">:</span> <span class="token string">'#8B8B8B'</span><span class="token punctuation">,</span>
+    <span class="token string">'--border-color'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .3)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--code-color'</span><span class="token punctuation">:</span> <span class="token string">'rgba(0, 0, 0, .3)'</span><span class="token punctuation">,</span>
+    <span class="token string">'--mask-color'</span><span class="token punctuation">:</span> <span class="token string">'#000'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+export default modeOptions
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><p>到这里，变量就加完了，然后我们在终端或者控制台，<code>npm run dev</code>一下，进入博客页面。</p> <p>使用<code>F12</code>打开开发人员工具，然后<code>Ctrl + Shift + c</code>选择你要修改透明度的区域。</p> <p>找到<strong>样式</strong>，选择你要修改的区域的<strong>洋文</strong>，比如导航栏：</p> <p><img src="/assets/img/21-10-27-1.f39df26d.png" alt="21-10-27-1"></p> <p>这里是我修改后的，然后我们我们可以看到这个链接是文件名字和在哪一行开始找颜色代码。</p> <p><img src="/assets/img/21-10-27-2.cf8b202d.png" alt="21-10-27-2"></p> <p>接着我们到<code>.vuepress</code>下的<code>theme</code>下的<code>components</code>找到并打开这个文件。在刚才记录的代码行，比如我这个图片显示的<strong>95</strong>行开始往下找(这里建议用<code>vscode</code>等够显示行数的打开)，找到第一个图显示的<code>background</code>,将括号里面的变量改为你添加的就可以了 。我修改如下</p> <p><img src="/assets/img/21-10-27-3.544e37e5.png" alt="21-10-27-3"></p> <p>保存</p> <p>因为vuepress是动态渲染，我们马上就可以看到自己修改的区域变化。</p> <div class="custom-block tip"><p class="title"></p><p>同样，主题字体颜色也是重复上述步骤的修改，目前貌似可以用styl文件修改，我有空研究一下。</p></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">12/23/2021, 5:31:16 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/docs/MD/ACM-BJ.html" class="prev">
+            ACM集训笔记和收录内容整理
+          </a></span> <span class="next"><a href="/docs/MD/BinaryTree.html">
+            完全二叉树的计算技巧
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-106c08ae><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#正文开始" class="sidebar-link reco-side-正文开始" data-v-106c08ae>正文开始</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#下面是优化" class="sidebar-link reco-side-下面是优化" data-v-106c08ae>下面是优化</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#首先是修改下载的博客路径" class="sidebar-link reco-side-首先是修改下载的博客路径" data-v-106c08ae>首先是修改下载的博客路径</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#修改头像、背景和左上角的logo" class="sidebar-link reco-side-修改头像、背景和左上角的logo" data-v-106c08ae>修改头像、背景和左上角的logo</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#接着是friend-link-等基本设置" class="sidebar-link reco-side-接着是friend-link-等基本设置" data-v-106c08ae>接着是Friend Link 等基本设置</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#修改首页底部信息" class="sidebar-link reco-side-修改首页底部信息" data-v-106c08ae>修改首页底部信息</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#导航栏设置-路由" class="sidebar-link reco-side-导航栏设置-路由" data-v-106c08ae>导航栏设置（路由）</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#然后基本就配置好了-接着是导入你之前写过的文章-介绍你将在哪里写博文" class="sidebar-link reco-side-然后基本就配置好了-接着是导入你之前写过的文章-介绍你将在哪里写博文" data-v-106c08ae>然后基本就配置好了，接着是导入你之前写过的文章，介绍你将在哪里写博文</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#接着添加气泡效果-这个应该很多教程都有写" class="sidebar-link reco-side-接着添加气泡效果-这个应该很多教程都有写" data-v-106c08ae>接着添加气泡效果，这个应该很多教程都有写</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#背景樱花特效" class="sidebar-link reco-side-背景樱花特效" data-v-106c08ae>背景樱花特效</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#live-2d" class="sidebar-link reco-side-live-2d" data-v-106c08ae>live 2D</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#音乐播放器" class="sidebar-link reco-side-音乐播放器" data-v-106c08ae>音乐播放器</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#最顶上边文章进度条" class="sidebar-link reco-side-最顶上边文章进度条" data-v-106c08ae>最顶上边文章进度条</a></li><li class="level-2" data-v-106c08ae><a href="/docs/MD/BKBJ.html#valine评论系统" class="sidebar-link reco-side-valine评论系统" data-v-106c08ae>Valine评论系统</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:-1;" data-v-017cf06a></canvas></div><!----><div></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="250" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="https://assets.smallsunnyfox.com/music/2.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://assets.smallsunnyfox.com/music/2.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://assets.smallsunnyfox.com/music/2.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>강남역 4번 출구</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>Plastic / Fallin` Dild</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><canvas id="vuepress-canvas-cursor"></canvas><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div></div></div>
+    <script src="/assets/js/app.ed62cf83.js" defer></script><script src="/assets/js/5.e2f5d834.js" defer></script><script src="/assets/js/1.ebd3c882.js" defer></script><script src="/assets/js/13.8d211bb2.js" defer></script>
+  </body>
+</html>
